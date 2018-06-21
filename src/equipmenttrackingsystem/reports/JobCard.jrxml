@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="807f3f39-ec52-4262-b4ae-bf80f4100078">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     materialrequisition.`RequisitionID` AS RequisitionID,
+     materialrequisition.`RequisitionName` AS RequisitionName,
+     materialrequisition.`RequisitionDate` AS RequisitionDate,
+     joballocation.`AllocationID` AS AllocationID,
+     joballocation.`Date` AS Date,
+     joballocation.`Time` AS Time,
+     joballocation.`RequisitionID` AS RequisitionID,
+     joballocation.`EmployeeID` AS EmployeeID,
+     joballocation.`CartID` AS CartID,
+     employee.`EmployeeID` AS EmployeeID,
+     employee.`Surname` AS Surname,
+     timestamp.`TimeStampID` AS TimeStampID,
+     location.`LocationName` AS LocationName,
+     cart.`CartID` AS CartID,
+     cart.`LocationID` AS LocationID,
+     employee.`Type` AS Type,
+     employee.`EmployeeName` AS EmployeeName
+FROM
+     `timestamp` timestamp INNER JOIN `joballocation` joballocation ON timestamp.`AllocationID` = joballocation.`AllocationID`
+     INNER JOIN `location` location ON timestamp.`LocationID` = location.`LocationID`
+     INNER JOIN `cart` cart ON location.`LocationID` = cart.`LocationID`
+     AND joballocation.`CartID` = cart.`CartID`
+     INNER JOIN `materialrequisition` materialrequisition ON joballocation.`RequisitionID` = materialrequisition.`RequisitionID`
+     INNER JOIN `employee` employee ON joballocation.`EmployeeID` = employee.`EmployeeID`
+     INNER JOIN `requisition` requisition ON materialrequisition.`RequisitionID` = requisition.`RequisitionID`]]>
+	</queryString>
+	<field name="RequisitionID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RequisitionName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="RequisitionDate" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="AllocationID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Date" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EmployeeID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CartID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Surname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TimeStampID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LocationName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LocationID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Type" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="EmployeeName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="RequisitionID">
+		<groupExpression><![CDATA[$F{RequisitionID}]]></groupExpression>
+		<groupHeader>
+			<band height="37">
+				<frame>
+					<reportElement mode="Opaque" x="-21" y="7" width="843" height="24" forecolor="#B89F7D" backcolor="#F2EBDF" uuid="8172f831-0e88-4732-b64e-552bb455abdd"/>
+					<rectangle>
+						<reportElement mode="Opaque" x="21" y="0" width="36" height="24" backcolor="#736343" uuid="3165e60f-c952-455c-8fd7-ea3645011bd7"/>
+						<graphicElement>
+							<pen lineWidth="0.0"/>
+						</graphicElement>
+					</rectangle>
+					<textField>
+						<reportElement style="SubTitle" x="68" y="0" width="755" height="24" forecolor="#736343" uuid="066131ad-fbbe-449b-a420-ff3c8c1d7e49"/>
+						<textElement>
+							<font isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{RequisitionID}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="270" y="0" width="263" height="62" uuid="6ab149c8-80d4-40bd-8848-4a57e11d702c"/>
+				<textElement verticalAlignment="Middle">
+					<font pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[Job Card]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="b7916f5a-7d66-44b6-bb09-33e32b6c556d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="0" width="61" height="15" forecolor="#736343" uuid="27e8ba7d-cb26-4117-a44b-5e443cd4ba2f"/>
+				<text><![CDATA[RequisitionName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="61" y="0" width="61" height="15" forecolor="#736343" uuid="03a3c2f5-e701-4fea-ad8b-55e955fab3af"/>
+				<text><![CDATA[RequisitionDate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="122" y="0" width="61" height="15" forecolor="#736343" uuid="3252ae41-2f32-4c27-8145-ef63bf223680"/>
+				<text><![CDATA[AllocationID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="183" y="0" width="61" height="15" forecolor="#736343" uuid="8d067e6e-d82c-4169-92ca-58149335ddb2"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="244" y="0" width="61" height="15" forecolor="#736343" uuid="db083a14-7ff9-47d5-9412-1bf041f90eb6"/>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="305" y="0" width="61" height="15" forecolor="#736343" uuid="3e894ed2-2bd7-4ad6-b296-171b6e3a5f2d"/>
+				<text><![CDATA[EmployeeID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="366" y="0" width="61" height="15" forecolor="#736343" uuid="14902bb5-c558-4ee0-b01f-c1f9d278f97a"/>
+				<text><![CDATA[CartID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="427" y="0" width="61" height="15" forecolor="#736343" uuid="cbe7cdc7-bc3f-4f0f-bed2-110b6929e114"/>
+				<text><![CDATA[Surname]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="488" y="0" width="61" height="15" forecolor="#736343" uuid="dbd3e80f-4a44-4bc7-bbac-845ab44148f9"/>
+				<text><![CDATA[TimeStampID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="549" y="0" width="61" height="15" forecolor="#736343" uuid="e354e5a2-03fa-4527-b68c-37a0b899ee5c"/>
+				<text><![CDATA[LocationName]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="610" y="0" width="61" height="15" forecolor="#736343" uuid="6bb86bd1-2629-49db-bee3-44996c9d1bfd"/>
+				<text><![CDATA[LocationID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="671" y="0" width="61" height="15" forecolor="#736343" uuid="fedd868e-cc94-4661-9c4c-8a984202bc6f"/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="732" y="0" width="61" height="15" forecolor="#736343" uuid="26e7acc2-729f-4f83-afa5-77b3a43365ed"/>
+				<text><![CDATA[EmployeeName]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="2ad04881-24cd-4ba4-9f57-d076039c9210"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="61" height="15" uuid="251a848f-9ed0-4026-96d0-4fcfd57a436a"/>
+					<textFieldExpression><![CDATA[$F{RequisitionName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="61" y="0" width="61" height="15" uuid="422b4686-ef6b-4cd3-bbdf-6ec512ef0048"/>
+					<textFieldExpression><![CDATA[$F{RequisitionDate}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="122" y="0" width="61" height="15" uuid="056b8024-ffb0-4498-b3d2-d39185726fb6"/>
+					<textFieldExpression><![CDATA[$F{AllocationID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="183" y="0" width="61" height="15" uuid="33a84873-2421-4927-bdeb-9cd34b255475"/>
+					<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="244" y="0" width="61" height="15" uuid="f41b66e6-469b-40a4-a67d-bf1c30ce3e4d"/>
+					<textFieldExpression><![CDATA[$F{Time}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="305" y="0" width="61" height="15" uuid="3243137d-64cf-437f-970c-49b063ae8f85"/>
+					<textFieldExpression><![CDATA[$F{EmployeeID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="366" y="0" width="61" height="15" uuid="c839888e-701c-42bd-8918-2e5690b55353"/>
+					<textFieldExpression><![CDATA[$F{CartID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="427" y="0" width="61" height="15" uuid="9597a099-9ca8-490e-91f7-0bd295e461f7"/>
+					<textFieldExpression><![CDATA[$F{Surname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="488" y="0" width="61" height="15" uuid="752278de-5646-4eee-980b-f9ca3aac7147"/>
+					<textFieldExpression><![CDATA[$F{TimeStampID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="549" y="0" width="61" height="15" uuid="a58eb6fb-8d2c-4cf1-8b7d-4be4bf4ec432"/>
+					<textFieldExpression><![CDATA[$F{LocationName}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="610" y="0" width="61" height="15" uuid="95492e49-3eff-43a0-958c-674c61e75c3f"/>
+					<textFieldExpression><![CDATA[$F{LocationID}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="671" y="0" width="61" height="15" uuid="6cb841cc-95f4-48a4-8399-ebf823af6561"/>
+					<textFieldExpression><![CDATA[$F{Type}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="732" y="0" width="61" height="15" uuid="0a4c3693-3fa0-443d-8c89-70e31e5c8fc1"/>
+					<textFieldExpression><![CDATA[$F{EmployeeName}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="b2711a18-33b4-4cbc-9bd0-6832d4fe464c"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="e8e6e065-906d-4bf5-90d3-de00290cf572"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="6ebfe817-d272-4981-b894-d5d0912dc1c8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="389b7f77-cf1d-4811-81fb-dbb429502117"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="2396b453-4872-4f43-b2be-aa1a07e5496d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

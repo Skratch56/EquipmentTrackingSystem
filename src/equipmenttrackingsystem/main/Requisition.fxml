@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="frmRequisition" prefHeight="581.0" prefWidth="1219.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipmenttrackingsystem.main.RequisitionController">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Select Equipment for Requisition" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <HBox layoutX="57.0" layoutY="137.0" spacing="10.0" />
+      <HBox layoutX="57.0" layoutY="217.0" spacing="10.0" />
+      <JFXTabPane layoutX="492.0" layoutY="93.0" prefHeight="438.0" prefWidth="696.0">
+         <tabs>
+            <Tab fx:id="eployeeTab" text="Equipment">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="696.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <TableView fx:id="tblEquipment" onMouseClicked="#onClickRow" prefHeight="402.0" prefWidth="696.0">
+                          <columns>
+                            <TableColumn fx:id="colPPECode" prefWidth="98.0" text="PPECode" />
+                            <TableColumn fx:id="colType" prefWidth="111.0" text="Type" />
+                              <TableColumn fx:id="colMass" minWidth="0.0" prefWidth="134.0" text="Mass" />
+                              <TableColumn fx:id="colEquipmentName" minWidth="0.0" prefWidth="150.0" text="EquipmentName" />
+                              <TableColumn fx:id="colQtyInStock" minWidth="0.0" prefWidth="115.0" text="Quantitiy" />
+                              <TableColumn fx:id="colAdd" prefWidth="87.0" text="Add" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="118.0" layoutY="351.0" onAction="#onClickSave" prefHeight="30.0" prefWidth="291.0" ripplerFill="#0026ff" style="-fx-background-color: #00C0EF;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="57.0" layoutY="137.0" prefHeight="30.0" prefWidth="150.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="RequisitionID" />
+      <Label layoutX="57.0" layoutY="192.0" prefHeight="30.0" prefWidth="150.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Date" />
+      <ComboBox fx:id="cmbRequisitionID" layoutX="226.0" layoutY="137.0" prefHeight="31.0" prefWidth="194.0" promptText="Select Requisition" style="-fx-background-color: #00C0EF;" />
+      <JFXDatePicker fx:id="dtRequisitionDate" layoutX="221.0" layoutY="189.0" promptText="Select Date" />
+      <JFXTextField fx:id="txtSearchField" layoutX="1019.0" layoutY="59.0" promptText="SearchField" />
+      <HBox alignment="CENTER_RIGHT" layoutX="861.0" prefHeight="40.0" prefWidth="355.0" spacing="10.0">
+         <children>
+            <JFXButton onAction="#onMinimize" prefHeight="48.0" prefWidth="25.0" text=" ">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="MINUS" size="45" wrappingWidth="28.35714340209961" />
+               </graphic>
+            </JFXButton>
+            <JFXButton onAction="#onClose" prefHeight="27.0" prefWidth="22.0" text=" ">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="CLOSE" size="45" wrappingWidth="35.35714340209961" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </HBox>
+      
+    </children>
+    
+</AnchorPane>

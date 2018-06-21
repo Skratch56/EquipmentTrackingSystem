@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToolbar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1350.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipmenttrackingsystem.main.MainFormController">
+   <children>
+      <JFXToolbar layoutX="184.0" layoutY="14.0" prefHeight="40.0" prefWidth="1360.0" style="-fx-min-height: 42; -fx-background-color: #222D32;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <Label prefHeight="30.0" prefWidth="342.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="Equipment Tracking System" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets left="40.0" />
+               </padding>
+            </Label>
+         </left>
+         <right>
+            <HBox prefHeight="42.0" prefWidth="441.0" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="USER" size="20.0" style="-fx-font-size: 20;" text="" textAlignment="CENTER" wrappingWidth="49.0">
+                     <HBox.margin>
+                        <Insets top="8.0" />
+                     </HBox.margin></FontAwesomeIconView>
+                  <Label fx:id="lblLoggedIn" prefHeight="30.0" prefWidth="468.0" style="-fx-font-size: 20; -fx-text-fill: #7387A8; -fx-font-weight: bold;" text="Label">
+                     <HBox.margin>
+                        <Insets top="3.0" />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+         </right>
+      </JFXToolbar>
+      <VBox layoutY="40.0" prefHeight="621.0" prefWidth="140.0" style="-fx-background-color: #2A3F54;">
+         <children>
+            <Label prefHeight="60.0" prefWidth="140.0" style="-fx-alignment: center; -fx-font-size: 16; -fx-text-fill: #7387A8; -fx-border-color: #7387A8; -fx-border-width: 0 0 2 0;" text="NAVIGATION" />
+            <JFXButton fx:id="btnHome" onAction="#switchHome" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Home" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="DASHBOARD" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnEmployee" layoutX="10.0" layoutY="109.0" onAction="#switchEmployees" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Employees" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="GROUP" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRequisition" layoutX="10.0" layoutY="151.0" onAction="#switchRequisiton" prefHeight="42.0" prefWidth="135.0" style="-fx-alignment: left;" styleClass="nav-button" text="Requisitions" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#a1aec4" glyphName="VIEW_GRID" size="17.0" text="" wrappingWidth="30.99997329711914" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnCart" layoutX="10.0" layoutY="67.0" onAction="#switchCart" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Carts" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <MaterialDesignIconView fill="#a1aec4" glyphName="CART-PLUS" size="17.0" text="" wrappingWidth="30.99997329711914" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnControls" onAction="#switchControls" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Equipment" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="ASTERISK" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRequisitionEquipment" layoutX="10.0" layoutY="193.0" onAction="#switchJobAllocationEquipment" prefHeight="42.0" prefWidth="144.0" style="-fx-alignment: left;" styleClass="nav-button" text="Allocate Job" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="GEARS" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRefresh" onAction="#onRefreshClicked" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Refresh" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="REFRESH" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnLogout" onAction="#onLogoutClicked" prefHeight="42.0" prefWidth="139.0" style="-fx-alignment: left;" styleClass="nav-button" text="Logout" textFill="#a1aec4">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <FontAwesomeIconView fill="#a1aec4" glyphName="PLANE" size="17.0" wrappingWidth="31.0" />
+               </graphic>
+            </JFXButton>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="holderPane" layoutX="140.0" layoutY="42.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" />
+   </children>
+</AnchorPane>

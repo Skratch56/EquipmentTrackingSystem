@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="1219.0" stylesheets="@custom.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipmenttrackingsystem.main.CartController">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Cart Management" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <HBox layoutX="57.0" layoutY="137.0" spacing="10.0" />
+      <Label layoutX="63.0" layoutY="253.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Location" />
+      <HBox layoutX="57.0" layoutY="217.0" spacing="10.0" />
+      <JFXTabPane layoutX="494.0" layoutY="67.0" prefHeight="561.0" prefWidth="696.0">
+         <tabs>
+            <Tab fx:id="eployeeTab" text="Carts">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="696.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <TableView fx:id="tblCarts" onMouseClicked="#onClickRow" prefHeight="488.0" prefWidth="696.0">
+                          <columns>
+                            <TableColumn fx:id="colCartID" prefWidth="227.0" text="CartID" />
+                            <TableColumn fx:id="colBattery" prefWidth="245.0" text="BatteryID" />
+                              <TableColumn fx:id="colLocation" minWidth="0.0" prefWidth="222.0" text="Location" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="101.0" layoutY="435.0" onAction="#onClickSave" prefHeight="30.0" prefWidth="90.0" ripplerFill="#0026ff" style="-fx-background-color: #00C0EF;" text="Save" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnEdit" buttonType="RAISED" layoutX="243.0" layoutY="435.0" onAction="#onClickEdit" prefHeight="30.0" prefWidth="90.0" ripplerFill="LIME" style="-fx-background-color: #00A65A;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="101.0" layoutY="506.0" onAction="#onClickDelete" prefHeight="30.0" prefWidth="90.0" ripplerFill="#fff600" style="-fx-background-color: #F39C12;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnNew" buttonType="RAISED" layoutX="243.0" layoutY="506.0" onAction="#onClickNew" prefHeight="30.0" prefWidth="90.0" ripplerFill="#ff4a00" style="-fx-background-color: #DD4B39;" text="New" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="57.0" layoutY="107.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Battery Life" />
+      <JFXTextField fx:id="txtCartID" disable="true" editable="false" labelFloat="true" layoutX="232.0" layoutY="329.0" maxWidth="370.0" minWidth="194.0" prefHeight="31.0" prefWidth="194.0" promptText="Auto Generated" />
+      <Label layoutX="63.0" layoutY="333.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="CartID" />
+      <ComboBox fx:id="cmbLocation" layoutX="232.0" layoutY="253.0" prefWidth="150.0" promptText="Select Location" style="-fx-background-color: #00C0EF;" />
+      <Pane layoutX="216.0" layoutY="90.0" prefHeight="94.0" prefWidth="235.0" style="-fx-background-color: #00C0EF; -fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5);">
+         <children>
+            <Pane prefHeight="94.0" prefWidth="41.0" style="-fx-background-color: #009ABF;" />
+            <VBox layoutX="41.0" layoutY="12.0" prefHeight="81.0" prefWidth="194.0" spacing="10.0">
+               <children>
+                  <VBox prefHeight="31.0" prefWidth="209.0">
+                     <children>
+                        <Label prefHeight="27.0" prefWidth="188.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;" text="Battery Life" textAlignment="CENTER" wrapText="true" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+                  <ProgressBar fx:id="progressBaterryLife" minHeight="-Infinity" opacity="0.78" prefHeight="5.0" prefWidth="182.0" progress="1.0" styleClass="custom-progress-bar" />
+                  <Label fx:id="txtProgress" alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="195.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;" text="100 % " />
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Slider fx:id="sliderProgress" layoutX="252.0" layoutY="192.0" prefHeight="18.0" prefWidth="194.0" value="100.0" />
+      
+    </children>
+    
+</AnchorPane>

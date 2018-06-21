@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="frmMaterail2" prefHeight="713.0" prefWidth="1219.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="equipmenttrackingsystem.main.MaterialRequisitionController2">
+    <children>
+        <Label layoutX="19.0" layoutY="17.0" prefHeight="30.0" prefWidth="392.0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Equipment Requisition Management" />
+      <Separator layoutX="3.0" layoutY="55.0" prefHeight="4.0" prefWidth="1213.0" />
+      <HBox layoutX="57.0" layoutY="137.0" spacing="10.0" />
+      <HBox layoutX="57.0" layoutY="217.0" spacing="10.0" />
+      <Label layoutX="40.0" layoutY="227.0" prefHeight="30.0" prefWidth="160.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Status" />
+      <JFXTabPane layoutX="492.0" layoutY="76.0" prefHeight="561.0" prefWidth="696.0">
+         <tabs>
+            <Tab text="Requisition">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="416.0" prefWidth="696.0" style="-fx-effect: dropshadow(gaussian, rgb(0.0, 0.0, 0.0, 0.15), 6.0, 0.7, 0.0,1.5); -fx-background-color: white;">
+                     <children>
+                        <TableView fx:id="tblRequisition" onMouseClicked="#onRowClicked" prefHeight="527.0" prefWidth="696.0">
+                          <columns>
+                            <TableColumn fx:id="colRequisitionID" prefWidth="110.0" text="RequisitionID" />
+                              <TableColumn fx:id="colRequisitionName" prefWidth="136.0" text="Comment" />
+                              <TableColumn fx:id="colRequisitionDate" prefWidth="126.0" text="RequisitionDate" />
+                              <TableColumn fx:id="colStatus" prefWidth="81.0" text="Status" />
+                              <TableColumn fx:id="colEmployeeID" prefWidth="107.0" text="EmployeeID" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </JFXTabPane>
+      <JFXDatePicker fx:id="dtRequisitionDate" layoutX="210.0" layoutY="157.0" promptText="Select Date" />
+      <JFXButton fx:id="btnEdit" layoutX="132.0" layoutY="472.0" onAction="#onEditClicked" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #00A65A;" text="Edit" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnDelete" layoutX="130.0" layoutY="531.0" onAction="#onDeleteClicked" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #F39C12;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnNew" layoutX="258.0" layoutY="531.0" onAction="#onNewClicked" prefHeight="30.0" prefWidth="90.0" style="-fx-background-color: #DD4B39;" text="New" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="40.0" layoutY="93.0" prefHeight="30.0" prefWidth="136.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Comment" />
+      <Label layoutX="40.0" layoutY="160.0" prefHeight="30.0" prefWidth="136.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="Requisition Date" />
+      <Label layoutX="40.0" layoutY="291.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="RequisitionID" />
+      <Label layoutX="40.0" layoutY="366.0" prefHeight="30.0" prefWidth="128.0" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #7387A8;" text="EmployeeID" />
+      <JFXTextField fx:id="txtRequisitionID" labelFloat="true" layoutX="210.0" layoutY="288.0" maxWidth="370.0" minWidth="227.0" prefHeight="37.0" prefWidth="227.0" promptText="Auto Generated" />
+      <JFXTextField fx:id="txtEmployeeID" labelFloat="true" layoutX="210.0" layoutY="362.0" maxWidth="370.0" minWidth="227.0" prefHeight="37.0" prefWidth="227.0" promptText="EmployeeID" />
+      <ComboBox fx:id="cmbStatus" layoutX="215.0" layoutY="227.0" prefHeight="31.0" prefWidth="216.0" promptText="Pending" style="-fx-background-color: #00C0EF;" />
+      <JFXButton fx:id="btnContinue" layoutX="130.0" layoutY="580.0" onAction="#onContinueClicked" prefHeight="30.0" prefWidth="216.0" style="-fx-background-color: #d03ec8;" text="Continue to PPEsInCart" textFill="WHITE">
+         <font>
+            <Font name="Roboto Medium" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="txtComment" labelFloat="true" layoutX="210.0" layoutY="90.0" maxWidth="370.0" minWidth="227.0" prefHeight="37.0" prefWidth="227.0" promptText="Comment" />
+      
+    </children>
+    
+</AnchorPane>
